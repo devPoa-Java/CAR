@@ -1,39 +1,40 @@
 package com.drivercar.democar.domain.model;
 
-import java.util.Date;
-
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-
-
-
-
+import javax.persistence.ManyToOne;
 
 @Entity
-public class Driver {
+public class TravelRequest {
 	@Id
-	@GeneratedValue
-	private Long id;
-	private String nome;
-	private Date dataNascimento;
+	Long id;
+	@ManyToOne
+	Passenger passenger;
+	String origin;
+	String destination;
 	public Long getId() {
 		return id;
 	}
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public String getNome() {
-		return nome;
+	public Passenger getPassenger() {
+		return passenger;
 	}
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setPassenger(Passenger passenger) {
+		this.passenger = passenger;
 	}
-	public Date getDataNascimento() {
-		return dataNascimento;
+	public String getOrigin() {
+		return origin;
 	}
-	public void setDataNascimento(Date dataNascimento) {
-		this.dataNascimento = dataNascimento;
+	public void setOrigin(String origin) {
+		this.origin = origin;
+	}
+	public String getDestination() {
+		return destination;
+	}
+	public void setDestination(String destination) {
+		this.destination = destination;
 	}
 	@Override
 	public int hashCode() {
@@ -50,7 +51,7 @@ public class Driver {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Driver other = (Driver) obj;
+		TravelRequest other = (TravelRequest) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
@@ -59,5 +60,5 @@ public class Driver {
 		return true;
 	}
 
-
+	
 }
