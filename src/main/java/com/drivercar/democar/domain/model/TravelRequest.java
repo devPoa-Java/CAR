@@ -1,17 +1,27 @@
 package com.drivercar.democar.domain.model;
 
+import java.util.Date;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import com.drivercar.democar.domain.TravelRequestStatus;
 
 @Entity
 public class TravelRequest {
 	@Id
+	@GeneratedValue
 	Long id;
 	@ManyToOne
 	Passenger passenger;
 	String origin;
 	String destination;
+	@Enumerated(EnumType.STRING)
+	TravelRequestStatus status;
+	Date creationDate;
+	
 	public Long getId() {
 		return id;
 	}
@@ -36,6 +46,18 @@ public class TravelRequest {
 	public void setDestination(String destination) {
 		this.destination = destination;
 	}
+	public TravelRequestStatus getStatus() {
+		return status;
+	}
+	public void setStatus(TravelRequestStatus status) {
+		this.status = status;
+	}
+	public Date getCreationDate() {
+		return creationDate;
+	}
+	public void setCreationDate(Date creationDate) {
+		this.creationDate = creationDate;
+	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -59,6 +81,9 @@ public class TravelRequest {
 			return false;
 		return true;
 	}
+	
+	
+	
 
 	
 }

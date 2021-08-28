@@ -1,6 +1,7 @@
 package com.drivercar.democar.domain.interfaces;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.hateoas.EntityModel;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -8,6 +9,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.drivercar.democar.domain.TravelRequestInput;
+import com.drivercar.democar.domain.TravelRequestMapper;
+import com.drivercar.democar.domain.TravelRequestOutput;
 import com.drivercar.democar.domain.model.TravelRequest;
 import com.drivercar.democar.domain.services.TravelService;
 
@@ -17,11 +21,14 @@ import com.drivercar.democar.domain.services.TravelService;
 public class TravelRequestAPI {
 	@Autowired
 	TravelService travelService;
+	@Autowired
+	TravelRequestMapper mapper;
 	
 	@PostMapping
-	public void makeTravelRequest(@RequestBody TravelRequest travelRequest) {
-		travelService.savetravelRequest(travelRequest);
-	}
-	
+	public EntityModel<TravelRequestOutput> makeTravelRequest(@RequestBody TravelRequestInput travelRequestInput) {
+		TravelRequest request = travelService.savetravelRequest(mapper.map(travelRequestInput));
+		TravelRequestOutput output =  mapper.map(request);
+		return mapper.buildOutputModel(request, output);
+	}	
 
 }
