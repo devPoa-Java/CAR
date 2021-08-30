@@ -32,11 +32,11 @@ public class TravelRequestMapper{
 				
 	public TravelRequestOutput map(TravelRequest travelRequest){
 		TravelRequestOutput travelRequestOutput = new TravelRequestOutput();
-		travelRequest.setCreationDate(travelRequest.getCreationDate());
-		travelRequest.setDestination(travelRequest.getDestination());
-		travelRequest.setId(travelRequest.getId());
-		travelRequest.setOrigin(travelRequest.getOrigin());
-		travelRequest.setStatus(travelRequest.getStatus());
+		travelRequestOutput.setCreationDate(travelRequest.getCreationDate());
+		travelRequestOutput.setDestination(travelRequest.getDestination());
+		travelRequestOutput.setId(travelRequest.getId());
+		travelRequestOutput.setOrigin(travelRequest.getOrigin());
+		travelRequestOutput.setStatus(travelRequest.getStatus());
 		
 		return travelRequestOutput;
 		
