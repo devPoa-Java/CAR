@@ -1,0 +1,17 @@
+{"properties": [
+  {
+    "name": "com.drivercar.democar.domain.interfaces.googlemaps.apikey",
+    "type": "java.lang.String",
+    "description": "A description for 'com.drivercar.democar.domain.interfaces.googlemaps.apikey'"
+  },
+  {
+    "name": "com.drivercar.democar.domain.googlemaps.apikey",
+    "type": "java.lang.String",
+    "description": "A description for 'com.drivercar.democar.domain.googlemaps.apikey'"
+  },
+  {
+    "name": "domain.googlemaps.apikey",
+    "type": "java.lang.String",
+    "description": "A description for 'domain.googlemaps.apikey'"
+  }
+]}

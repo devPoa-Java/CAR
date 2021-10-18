@@ -1,5 +1,8 @@
 package com.drivercar.democar.domain;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.Link;
@@ -26,7 +29,7 @@ public class TravelRequestMapper{
 				TravelRequest travelRequest = new TravelRequest();
 				travelRequest.setOrigin(input.getOrigin());
 				travelRequest.setDestination(input.getDestination());
-				travelRequest.setPassenger(passenger);				
+				travelRequest.setPassenger(passenger);				                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
 				return travelRequest;
 	}
 				
@@ -54,5 +57,13 @@ public class TravelRequestMapper{
 		
 		return model;
 	
+	}
+	
+	public List<EntityModel<TravelRequestOutput>>
+	  buildOutputModel(List<TravelRequest> requests){
+		return requests
+				 .stream()
+				 .map(tr -> buildOutputModel(tr, map(tr)))
+				 .collect(Collectors.toList());
 	}
 }
