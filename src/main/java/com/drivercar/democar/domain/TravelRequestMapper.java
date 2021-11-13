@@ -47,7 +47,8 @@ public class TravelRequestMapper{
 	}
 	
 	public EntityModel<TravelRequestOutput> buildOutputModel(TravelRequest travelRequest, TravelRequestOutput output){
-	    EntityModel<TravelRequestOutput> model = new  EntityModel<>(output);
+	    @SuppressWarnings("deprecation")
+		EntityModel<TravelRequestOutput> model = new  EntityModel<>(output);
 		Link passengerLink = WebMvcLinkBuilder
 				.linkTo(PassengerAPI.class)
 				.slash(travelRequest.getPassenger().getId())
