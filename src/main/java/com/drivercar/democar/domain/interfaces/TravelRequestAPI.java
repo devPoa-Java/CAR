@@ -21,7 +21,7 @@ import com.drivercar.democar.domain.model.TravelRequest;
 
 @Service
 @RestController
-@RequestMapping(path = "/travelRequest", produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(path = "/travelRequests", produces = MediaType.APPLICATION_JSON_VALUE)
 public class TravelRequestAPI {
 	@Autowired
 	TravelService travelService;

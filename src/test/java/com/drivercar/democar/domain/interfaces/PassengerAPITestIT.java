@@ -1,4 +1,5 @@
-package com.drivercar.democar.domain;
+package com.drivercar.democar.domain.interfaces;
+
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -31,7 +32,6 @@ public class PassengerAPITestIT {
 			.statusCode(200)
 			.body("id", notNullValue())
 			.body("nome", equalTo("Sandro M dos Santos"));
-		
 		
 	}
 		
