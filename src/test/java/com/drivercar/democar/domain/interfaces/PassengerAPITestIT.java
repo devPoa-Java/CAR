@@ -23,7 +23,7 @@ public class PassengerAPITestIT {
 	
 	@Test
 	public void testCreatePassenger() {
-		String createPassengerJSON = "{\"nome\":\"Sandro M dos Santos\"}";
+		String createPassengerJSON = "{\"name\":\"Sandro M dos Santos\"}";
 		given()
 			.contentType(io.restassured.http.ContentType.JSON)
 			.body(createPassengerJSON)
@@ -31,7 +31,7 @@ public class PassengerAPITestIT {
 			.then()
 			.statusCode(200)
 			.body("id", notNullValue())
-			.body("nome", equalTo("Sandro M dos Santos"));
+			.body("name", equalTo("Sandro M dos Santos"));
 		
 	}
 		

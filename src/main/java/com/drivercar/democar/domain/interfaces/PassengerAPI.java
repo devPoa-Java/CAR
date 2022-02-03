@@ -3,6 +3,8 @@ package com.drivercar.democar.domain.interfaces;
 import java.util.List;
 import java.util.Optional;
 
+import javax.annotation.security.RolesAllowed;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -39,6 +41,7 @@ public class PassengerAPI {
 	}
 	
 	@PostMapping
+	@RolesAllowed("ROLE_ADMIN")
 	public Passenger createPassenger(@RequestBody Passenger passenger) {
 		return passengerRepository.save(passenger);
 	}
@@ -46,7 +49,7 @@ public class PassengerAPI {
 	@PutMapping("/{id}")
 	public Passenger fullUpdatePassenger(@PathVariable("id") Long id, @RequestBody Passenger passenger) {
 	  Passenger foundPassenger = findPassenger(id);
-	  foundPassenger.setNome(passenger.getNome());
+	  foundPassenger.setName(passenger.getName());
 	  return passengerRepository.save(foundPassenger);
 	  
 	}
@@ -54,7 +57,7 @@ public class PassengerAPI {
 	@PatchMapping("/{id}")
 	public Passenger incrementalUpdatePassenger(@PathVariable("id") Long id, @RequestBody Passenger passenger) {
 		Passenger foundPassenger = findPassenger(id);
-		foundPassenger.setNome(Optional.ofNullable(passenger.getNome()).orElse(foundPassenger.getNome()));
+		foundPassenger.setName(Optional.ofNullable(passenger.getName()).orElse(foundPassenger.getName()));
 		return passengerRepository.save(foundPassenger);
 	}
 	

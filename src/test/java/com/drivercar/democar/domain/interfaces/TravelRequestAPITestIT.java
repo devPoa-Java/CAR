@@ -53,7 +53,7 @@ public class TravelRequestAPITestIT {
 			.then()
 			.statusCode(200)
 			.body("id", notNullValue())
-			.body("nome", is("Sandro M dos Santos"))
+			.body("name", is("Sandro M dos Santos"))
 			.extract()
 			.body()
 			.jsonPath().getString("id")

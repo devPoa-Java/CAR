@@ -53,7 +53,7 @@ public class TravelRequestMapper{
 				.linkTo(PassengerAPI.class)
 				.slash(travelRequest.getPassenger().getId())
 				.withRel("passenger")
-				.withTitle(travelRequest.getPassenger().getNome());
+				.withTitle(travelRequest.getPassenger().getName());
 		model.add(passengerLink);
 		
 		return model;
