@@ -17,13 +17,23 @@ public class User {
 	private String username;
 	private String password;
 	
-	private Boolean enable;
+	private Boolean enabled;
 	
 	@ElementCollection
 	List<String>roles;
 	
 	public User() {
 	}
+	
+	public User(Long id, String username, String password, Boolean enabled, List<String> roles) {
+		super();
+		this.id = id;
+		this.username = username;
+		this.password = password;
+		this.enabled = enabled;
+		this.roles = roles;
+	}
+
 
 	public Long getId() {
 		return id;
@@ -49,12 +59,12 @@ public class User {
 		this.password = password;
 	}
 
-	public Boolean getEnable() {
-		return enable;
+	public Boolean getEnabled() {
+		return enabled;
 	}
 
-	public void setEnable(Boolean enable) {
-		this.enable = enable;
+	public void setEnabled(Boolean enable) {
+		this.enabled = enable;
 	}
 
 	public List<String> getRoles() {

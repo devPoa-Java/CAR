@@ -24,7 +24,7 @@ public class LoadUserConfig {
 		admin.setPassword(passwordEncoder.encode("password"));
 		admin.setRoles(Arrays.asList("ROLE_ADMIN"));
 		admin.setUsername("admin");
-		admin.setEnable(true);
+		admin.setEnabled(true);
 		
 		userRepository.save(admin);
 	}
