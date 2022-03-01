@@ -66,7 +66,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //			.withUser(admin);
 	   
 		String queryUsers ="select username, password, enabled from user where username=?";
-		String queryRoles ="select u.username, r.roles from user_roles r, user u wherer r.user_id = u.id and u.unsername=?";
+		String queryRoles ="select u.username, r.roles from user_roles r, user u where r.user_id = u.id and u.username=?";
 		
 		
 		auth.jdbcAuthentication()
