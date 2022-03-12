@@ -6,6 +6,7 @@ import static com.github.tomakehurst.wiremock.client.WireMock.equalTo;
 import static com.github.tomakehurst.wiremock.client.WireMock.get;
 import static com.github.tomakehurst.wiremock.client.WireMock.okJson;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlPathEqualTo;
+import static io.restassured.RestAssured.basic;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.notNullValue;
@@ -40,7 +41,9 @@ public class TravelRequestAPITestIT {
 	
 	@BeforeEach
 	public void setup() {
-		RestAssured.port = port;
+		RestAssured.baseURI = "https://localhost:" + port;
+		RestAssured.useRelaxedHTTPSValidation();
+		RestAssured.authentication = basic("admin", "password");
 	}
 	
 	@Test
@@ -53,7 +56,7 @@ public class TravelRequestAPITestIT {
 			.then()
 			.statusCode(200)
 			.body("id", notNullValue())
-			.body("name", is("Sandro M dos Santos"))
+			.body("name", is("Teste"))
 			.extract()
 			.body()
 			.jsonPath().getString("id")
@@ -70,7 +73,7 @@ public class TravelRequestAPITestIT {
 				.body("id", notNullValue())
 				.body("origin", is("Avenida Paulista, 1000"))
 				.body("status", is("CREATED"))
-				.body("_links.passenger.title", is("Sandro M dos Santos"))
+				.body("_links.passenger.title", is("Teste"))
 				.extract()
 				.jsonPath()
 				.get("id")
