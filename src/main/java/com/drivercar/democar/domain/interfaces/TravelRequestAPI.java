@@ -2,6 +2,8 @@ package com.drivercar.democar.domain.interfaces;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.http.MediaType;
@@ -19,6 +21,7 @@ import com.drivercar.democar.domain.TravelRequestOutput;
 import com.drivercar.democar.domain.TravelService;
 import com.drivercar.democar.domain.model.TravelRequest;
 
+
 @Service
 @RestController
 @RequestMapping(path = "/travelRequests", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -29,7 +32,7 @@ public class TravelRequestAPI {
 	TravelRequestMapper mapper;
 	
 	@PostMapping
-	public EntityModel<TravelRequestOutput> makeTravelRequest(@RequestBody TravelRequestInput travelRequestInput) {
+	public EntityModel<TravelRequestOutput> makeTravelRequest(@RequestBody @Valid TravelRequestInput travelRequestInput) {
 		TravelRequest request = travelService.saveTravelRequest(mapper.map(travelRequestInput));
 		TravelRequestOutput output =  mapper.map(request);
 		return mapper.buildOutputModel(request, output);

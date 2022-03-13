@@ -1,10 +1,14 @@
 package com.drivercar.democar.domain;
 
-
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 public class TravelRequestInput {
-    Long passengerId;
-	String origin;
+    @NotNull(message = "O campo passengerId não pode ser nulo")
+	Long passengerId;
+    @NotEmpty(message = "O campo origin não pode estar em branco")
+  	String origin;
+    @NotEmpty(message = "O campo destination não pode estar em branco")
 	String destination;
 	public Long getPassengerId() {
 		return passengerId;
