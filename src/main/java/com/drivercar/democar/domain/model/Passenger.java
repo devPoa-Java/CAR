@@ -10,6 +10,15 @@ public class Passenger {
 	@GeneratedValue
 	Long id;
 	String name;
+	
+	public Passenger() {
+		
+	}	
+	
+	public Passenger(Long id, String name) {
+		this.id = id;
+		this.name = name;
+	}
 	public Long getId() {
 		return id;
 	}

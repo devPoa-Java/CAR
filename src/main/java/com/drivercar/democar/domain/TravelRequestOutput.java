@@ -9,6 +9,12 @@ public class TravelRequestOutput{
 		String destination;
 		TravelRequestStatus status;
 		Date creationDate;
+		
+		public TravelRequestOutput() {
+			
+		}
+		
+
 		public Long getId() {
 			return Id;
 		}

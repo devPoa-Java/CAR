@@ -3,6 +3,7 @@ package com.drivercar.democar.domain.interfaces;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
+import java.util.Optional;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -24,7 +25,7 @@ public class LocaleResolver extends AcceptHeaderLocaleResolver{
 		}
 	    List<Locale.LanguageRange> list = Locale.LanguageRange.parse(acceptLanguageHeader);
 	    Locale locale = Locale.lookup(list, ACCEPTED_LOCALES);
-	    return locale;
+	    return Optional.ofNullable(locale).orElse(DEFAULT_LOCALE);
 	}
 
 }

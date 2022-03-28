@@ -22,6 +22,18 @@ public class TravelRequest {
 	TravelRequestStatus status;
 	Date creationDate;
 	
+	public TravelRequest() {
+	}
+	
+	public TravelRequest(Long id, Passenger passenger, String origin, String destination, TravelRequestStatus status,
+			Date creationDate) {
+		this.id = id;
+		this.passenger = passenger;
+		this.origin = origin;
+		this.destination = destination;
+		this.status = status;
+		this.creationDate = creationDate;
+	}
 	public Long getId() {
 		return id;
 	}

@@ -4,13 +4,17 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 public class TravelRequestInput {
-    @NotNull(message = "O campo passengerId não pode ser nulo")
+    @NotNull
 	Long passengerId;
-    @NotEmpty(message = "O campo origin não pode estar em branco")
+    @NotEmpty
   	String origin;
-    @NotEmpty(message = "O campo destination não pode estar em branco")
+    @NotEmpty
 	String destination;
-	public Long getPassengerId() {
+    
+    public TravelRequestInput() {
+      }
+    
+    public Long getPassengerId() {
 		return passengerId;
 	}
 	public void setPassengerId(Long passengerId) {

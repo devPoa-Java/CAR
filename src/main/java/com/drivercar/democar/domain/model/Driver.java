@@ -13,6 +13,17 @@ public class Driver {
 	private Long id;
 	private String nome;
 	private Date dataNascimento;
+	
+	public Driver() {
+		
+	}
+	
+	public Driver(Long id, String nome, Date dataNascimento) {
+		this.id = id;
+		this.nome = nome;
+		this.dataNascimento = dataNascimento;
+	}
+
 	public Long getId() {
 		return id;
 	}

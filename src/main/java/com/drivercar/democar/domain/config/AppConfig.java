@@ -11,9 +11,10 @@ public class AppConfig {
 	@Bean
 	public MessageSource messageSource(){
 		ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
-		messageSource.setBasename("i18n/messages");
+        messageSource.setBasename("i18n/messages");
+        return messageSource;
 		
-		return messageSource;
+		
 	}
 
 }
